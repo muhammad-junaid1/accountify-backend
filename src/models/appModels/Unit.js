@@ -23,6 +23,13 @@ const schema = new mongoose.Schema({
     default: 0,
   },
 
+  hash: {
+    type: String,
+    unique: true,
+    default: '',
+    required: true,
+  },
+
   type: {
     type: String,
   },
