@@ -6,7 +6,13 @@ const { hasPermission } = require('@/middlewares/permission');
 const appControllers = require('@/controllers/appControllers');
 const { routesList } = require('@/models/utils');
 
+const { calculate } = require('./extraControllers/inflow');
+
 const routerApp = (entity, controller) => {
+  // Advanced routes
+
+  router.get('/inflow/calculate', calculate);
+
   router
     .route(`/${entity}/create`)
     .post(hasPermission('create'), catchErrors(controller['create']));
